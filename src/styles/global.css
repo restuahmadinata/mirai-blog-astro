@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, oklch(93.177% 0.00106 11.643) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(93.177% 0.00106 11.643) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+body {
+  font-family: 'Sora Variable', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #36363671;
+  border-radius: 4px;
+}
+

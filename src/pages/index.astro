@@ -1,17 +1,65 @@
 ---
+import MainLayout from '../layouts/MainLayout.astro'
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Mirai Blog</h1>
-		<p>Saya mau buat blog</p>
-	</body>
-</html>
+<MainLayout>
+<section class="grid grid-cols-2 grid-rows-2 gap-px rounded overflow-hidden">
+  <!-- Biodata -->
+  <div class="p-6">
+    <h2 class="text-xl font-semibold mb-2">Who Am I?</h2>
+	<p>
+		Kenalin, <strong>Restu Ahmadinata</strong>, biasa dipanggil Restu atau Radinata. Gw adalah seorang mahasiswa
+		di Universitas Hasanuddin jurusan Sistem Informasi. Punya minat dunia teknologi sejak kecil, diawali dari suka main hp emak hampir tiap hari.
+		Gw baru belajar ngoding sejak masuk kuliah jadi sebelumnya itu ga pernah nyentuh dunia coding sama sekali. Suka nonton anime namun ga sering.
+		Udah punya istri namanya Mirai Kuriyama.
+	</p>
+  </div>
+
+  <!-- Skill -->
+  <div class="p-6 border-l-2 border-gray-300">
+    <h2 class="text-xl font-semibold mb-2">Skill</h2>
+    <ul class="list-none space-y-2">
+		<li class="flex items-center gap-2">
+			<iconify-icon icon="simple-icons:laravel" width="20"></iconify-icon>
+			Laravel
+		</li>
+
+		<li class="flex items-center gap-2">
+			<iconify-icon icon="simple-icons:nextdotjs" width="20"></iconify-icon>
+			NextJS
+		</li>
+
+		<li class="flex items-center gap-2">
+			<iconify-icon icon="simple-icons:astro" width="20"></iconify-icon>
+			Astro
+		</li>
+
+		<li class="flex items-center gap-2">
+			<iconify-icon icon="simple-icons:tailwindcss" width="20"></iconify-icon>
+			Tailwind CSS
+		</li>
+    </ul>
+  </div>
+
+  <!-- Learn Journey -->
+  <div class="p-6 border-t-2 border-gray-300">
+    <h2 class="text-xl font-semibold mb-2">Learn Journey</h2>
+	<p>
+		Belajar programming website sejak semester 3 kuliah, awalnya belajar HTML, CSS, dan JavaScript.
+		Kemudian berlanjut ke PHP dan Laravel. Saat ini fokus pada pengembangan web modern dengan NextJS dan Astro.
+	</p>
+  </div>
+
+  <!-- Social -->
+  <div class="p-6 border-l-2 border-t-2 border-gray-300">
+    <h2 class="text-xl font-semibold mb-2">Social</h2>
+    <ul>
+      <li><a href="#" class="text-blue-600 hover:underline">LinkedIn</a></li>
+      <li><a href="#" class="text-blue-600 hover:underline">GitHub</a></li>
+      <li><a href="#" class="text-blue-600 hover:underline">Twitter</a></li>
+    </ul>
+  </div>
+</section>
+
+</MainLayout>

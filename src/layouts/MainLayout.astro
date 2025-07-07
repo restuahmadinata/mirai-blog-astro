@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/navbar.astro';
+import Footer from '../components/footer.astro';
+import '@fontsource-variable/sora';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+        <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" defer></script>
+	</head>
+	<body class="min-h-screen flex flex-col bg-grid">
+        <header class="sticky top-4 z-50">
+            <Navbar />
+        </header>
+        <main class="flex-grow p-8">
+            <slot />
+        </main>
+        <footer>
+            <Footer />
+        </footer>
+	</body>
+</html>
