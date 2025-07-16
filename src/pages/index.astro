@@ -1,65 +1,100 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro'
-
+import MainLayout from '../layouts/MainLayout.astro';
+import BrainIcon from '../components/icons/BrainIcon.astro';
+import SkillSet from '../components/icons/SkillSet.astro';
+import Learn from '../components/icons/Learn.astro';
+import Social from '../components/icons/Social.astro';
 ---
 
 <MainLayout>
-<section class="grid grid-cols-2 grid-rows-2 gap-px rounded overflow-hidden">
-  <!-- Biodata -->
-  <div class="p-6">
-    <h2 class="text-xl font-semibold mb-2">Who Am I?</h2>
-	<p>
-		Kenalin, <strong>Restu Ahmadinata</strong>, biasa dipanggil Restu atau Radinata. Gw adalah seorang mahasiswa
-		di Universitas Hasanuddin jurusan Sistem Informasi. Punya minat dunia teknologi sejak kecil, diawali dari suka main hp emak hampir tiap hari.
-		Gw baru belajar ngoding sejak masuk kuliah jadi sebelumnya itu ga pernah nyentuh dunia coding sama sekali. Suka nonton anime namun ga sering.
-		Udah punya istri namanya Mirai Kuriyama.
-	</p>
-  </div>
+  <section class="max-w-[65ch] mx-auto px-4 sm:px-8 py-16 space-y-24">
 
-  <!-- Skill -->
-  <div class="p-6 border-l-2 border-gray-300">
-    <h2 class="text-xl font-semibold mb-2">Skill</h2>
-    <ul class="list-none space-y-2">
-		<li class="flex items-center gap-2">
-			<iconify-icon icon="simple-icons:laravel" width="20"></iconify-icon>
-			Laravel
-		</li>
+    <!-- Who Am I -->
+    <div class="flex flex-col lg:flex-row gap-12 items-start">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold mb-4 text-balance">Who Am I?</h2>
+        <p class="text-gray-700 leading-8 text-[1.05rem] text-pretty">
+          Yo, name’s <strong>Restu Ahmadinata</strong>, but you can call me Restu or Radinata.
+          I’m a student at Hasanuddin University, majoring in Information Systems.
+          Been into tech since I was a kid — all started from messing around with my mom’s phone almost every day.
+          I only started learning to code when I got into college, so before that, I was totally clueless about programming.
+          I watch anime sometimes, but not that often. Oh, and yeah... I’m already married — to Mirai Kuriyama. 😉
+        </p>
+      </div>
+      <div class="flex-1 text-center lg:text-right text-5xl opacity-20 select-none hidden lg:block">
+        <BrainIcon />
+      </div>
+    </div>
 
-		<li class="flex items-center gap-2">
-			<iconify-icon icon="simple-icons:nextdotjs" width="20"></iconify-icon>
-			NextJS
-		</li>
+	<!-- Skill Set -->
+	<div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
+		<div class="flex-1">
+			<h2 class="text-3xl font-bold mb-4">Skills</h2>
+			<ul class="flex flex-wrap gap-x-6 gap-y-4 text-gray-800">
 
-		<li class="flex items-center gap-2">
-			<iconify-icon icon="simple-icons:astro" width="20"></iconify-icon>
-			Astro
-		</li>
+			<!-- Web Development -->
+			<li class="basis-full font-semibold text-gray-600 mt-2">Web Development</li>
+			<li class="flex items-center gap-2">
+				<iconify-icon icon="simple-icons:laravel" width="20"></iconify-icon> Laravel
+			</li>
+			<li class="flex items-center gap-2">
+				<iconify-icon icon="simple-icons:nextdotjs" width="20"></iconify-icon> NextJS
+			</li>
+			<li class="flex items-center gap-2">
+				<iconify-icon icon="simple-icons:astro" width="20"></iconify-icon> Astro
+			</li>
+			<li class="flex items-center gap-2">
+				<iconify-icon icon="simple-icons:tailwindcss" width="20"></iconify-icon> Tailwind CSS
+			</li>
 
-		<li class="flex items-center gap-2">
-			<iconify-icon icon="simple-icons:tailwindcss" width="20"></iconify-icon>
-			Tailwind CSS
-		</li>
-    </ul>
-  </div>
+			<!-- Mobile Development -->
+			<li class="basis-full font-semibold text-gray-600 mt-4">Mobile Development</li>
+			<li class="flex items-center gap-2">
+				<iconify-icon icon="simple-icons:flutter" width="20"></iconify-icon> Flutter
+			</li>
+			<li class="flex items-center gap-2">
+				<iconify-icon icon="simple-icons:androidstudio" width="20"></iconify-icon> Android Studio
+			</li>
 
-  <!-- Learn Journey -->
-  <div class="p-6 border-t-2 border-gray-300">
-    <h2 class="text-xl font-semibold mb-2">Learn Journey</h2>
-	<p>
-		Belajar programming website sejak semester 3 kuliah, awalnya belajar HTML, CSS, dan JavaScript.
-		Kemudian berlanjut ke PHP dan Laravel. Saat ini fokus pada pengembangan web modern dengan NextJS dan Astro.
-	</p>
-  </div>
+			<!-- Others -->
+			<li class="basis-full font-semibold text-gray-600 mt-4">Other</li>
+			<li class="flex items-center gap-2">
+				<iconify-icon icon="simple-icons:figma" width="20"></iconify-icon> Figma
+			</li>
+			<li class="flex items-center gap-2">
+				<iconify-icon icon="simple-icons:adobepremierepro" width="20"></iconify-icon> Premiere Pro
+			</li>
+			<li class="flex items-center gap-2">
+				<iconify-icon icon="simple-icons:canva" width="20"></iconify-icon> Canva
+			</li>
+			</ul>
+		</div>
+		<div class="flex-1 text-center lg:text-left text-5xl opacity-20 select-none hidden lg:block">
+			<SkillSet />
+		</div>
+	</div>
 
-  <!-- Social -->
-  <div class="p-6 border-l-2 border-t-2 border-gray-300">
-    <h2 class="text-xl font-semibold mb-2">Social</h2>
-    <ul>
-      <li><a href="#" class="text-blue-600 hover:underline">LinkedIn</a></li>
-      <li><a href="#" class="text-blue-600 hover:underline">GitHub</a></li>
-      <li><a href="#" class="text-blue-600 hover:underline">Twitter</a></li>
-    </ul>
-  </div>
-</section>
 
+    <!-- Social -->
+    <div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold mb-4">Social</h2>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="text-blue-600 hover:underline">LinkedIn</a>
+          </li>
+          <li>
+            <a href="#" class="text-blue-600 hover:underline">GitHub</a>
+          </li>
+          <li>
+            <a href="#" class="text-blue-600 hover:underline">Twitter</a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex-1 text-center lg:text-left text-5xl opacity-20 select-none hidden lg:block">
+        <Social />
+      </div>
+    </div>
+
+  </section>
 </MainLayout>

@@ -1,5 +1,105 @@
 @import "tailwindcss";
 
+/* Custom prose styles for markdown content - Light mode */
+.prose {
+  color: rgb(55 65 81);
+  line-height: 1.625;
+}
+
+.prose h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: rgb(17 24 39);
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(17 24 39);
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: rgb(17 24 39);
+  margin-bottom: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+  color: rgb(55 65 81);
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.prose code {
+  background-color: rgb(243 244 246);
+  color: rgb(219 39 119);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.prose pre {
+  background-color: rgb(249 250 251);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid rgb(229 231 235);
+}
+
+.prose blockquote {
+  border-left: 4px solid rgb(236 72 153);
+  padding-left: 1rem;
+  font-style: italic;
+  color: rgb(107 114 128);
+  margin: 1rem 0;
+}
+
+.prose ul, .prose ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  display: list-item;
+}
+
+.prose ul li {
+  list-style-type: disc;
+}
+
+.prose ol li {
+  list-style-type: decimal;
+}
+
+.prose a {
+  color: rgb(219 39 119);
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: rgb(157 23 77);
+}
+
 .bg-grid {
   background-image:
     linear-gradient(to right, oklch(93.177% 0.00106 11.643) 1px, transparent 1px),

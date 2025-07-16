@@ -2,29 +2,27 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="w-min-screen flex justify-between items-center shadow-md m-4 p-4 border">
+<nav class="max-w-[65ch] mx-auto flex justify-between items-center px-6 py-4 border bg-white/95 rounded">
+  <a
+    href="/"
+    class="text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors"
+  >
+    Mirai/Blog
+  </a>
+
+  <div class="flex gap-8">
+    <a
+      href="/"
+      class={currentPath === '/' ? 'font-semibold underline underline-offset-8' : ''}
+    >
+      Home
+    </a>
 
     <a
-        href="/"
-        class="text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors pl-6">
-        Mirai/Blog
+      href="/blog"
+      class={currentPath.startsWith('/blog') ? 'font-semibold underline underline-offset-8' : ''}
+    >
+      Blog
     </a>
-
-    <div class="flex gap-8 pr-6">
-        <a
-        href="/"
-        class={currentPath === '/' ? 'font-semibold underline underline-offset-8' : ''}
-        >
-        Home
-    </a>
-
-    <a
-        href="/blog"
-        class={currentPath.startsWith('/blog') ? 'font-semibold underline underline-offset-8' : ''}
-        >
-        Blog
-    </a>
-    </div>
-    
-
+  </div>
 </nav>
