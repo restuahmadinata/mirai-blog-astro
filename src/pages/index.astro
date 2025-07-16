@@ -2,98 +2,241 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import BrainIcon from '../components/icons/BrainIcon.astro';
 import SkillSet from '../components/icons/SkillSet.astro';
-import Learn from '../components/icons/Learn.astro';
 import Social from '../components/icons/Social.astro';
 ---
 
 <MainLayout>
-  <section class="max-w-[65ch] mx-auto px-4 sm:px-8 py-16 space-y-24">
+  <!-- Main container with responsive spacing -->
+  <section class="max-w-[65ch] 
+                 mx-1 sm:mx-auto 
+                 px-4 sm:px-8 
+                 py-8 sm:py-12 lg:py-16 
+                 space-y-12 sm:space-y-16 lg:space-y-24">
 
-    <!-- Who Am I -->
-    <div class="flex flex-col lg:flex-row gap-12 items-start">
+    <!-- Who Am I Section -->
+    <div class="flex flex-col lg:flex-row 
+               gap-6 sm:gap-8 lg:gap-12 
+               items-start">
+      
+      <!-- Content -->
       <div class="flex-1">
-        <h2 class="text-3xl font-bold mb-4 text-balance">Who Am I?</h2>
-        <p class="text-gray-700 leading-8 text-[1.05rem] text-pretty">
-          Yo, name’s <strong>Restu Ahmadinata</strong>, but you can call me Restu or Radinata.
-          I’m a student at Hasanuddin University, majoring in Information Systems.
-          Been into tech since I was a kid — all started from messing around with my mom’s phone almost every day.
+        <h2 class="text-2xl sm:text-3xl 
+                  font-bold 
+                  mb-3 sm:mb-4 
+                  text-balance">
+          Who Am I?
+        </h2>
+        
+        <p class="text-sm sm:text-base lg:text-[1.05rem] 
+                 text-gray-700 
+                 leading-6 sm:leading-7 lg:leading-8 
+                 text-pretty">
+          Yo, name's <strong>Restu Ahmadinata</strong>, but you can call me Restu or Radinata.
+          I'm a student at Hasanuddin University, majoring in Information Systems.
+          Been into tech since I was a kid — all started from messing around with my mom's phone almost every day.
           I only started learning to code when I got into college, so before that, I was totally clueless about programming.
-          I watch anime sometimes, but not that often. Oh, and yeah... I’m already married — to Mirai Kuriyama. 😉
+          I watch anime sometimes, but not that often. Oh, and yeah... I'm already married — to Mirai Kuriyama. 😉
         </p>
       </div>
-      <div class="flex-1 text-center lg:text-right text-5xl opacity-20 select-none hidden lg:block">
+      
+      <!-- Icon - hidden on mobile, visible on large screens -->
+      <div class="hidden lg:block 
+                 flex-1 
+                 text-center lg:text-right 
+                 text-4xl lg:text-5xl 
+                 opacity-20 
+                 select-none">
         <BrainIcon />
       </div>
     </div>
 
-	<!-- Skill Set -->
-	<div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
-		<div class="flex-1">
-			<h2 class="text-3xl font-bold mb-4">Skills</h2>
-			<ul class="flex flex-wrap gap-x-6 gap-y-4 text-gray-800">
-
-			<!-- Web Development -->
-			<li class="basis-full font-semibold text-gray-600 mt-2">Web Development</li>
-			<li class="flex items-center gap-2">
-				<iconify-icon icon="simple-icons:laravel" width="20"></iconify-icon> Laravel
-			</li>
-			<li class="flex items-center gap-2">
-				<iconify-icon icon="simple-icons:nextdotjs" width="20"></iconify-icon> NextJS
-			</li>
-			<li class="flex items-center gap-2">
-				<iconify-icon icon="simple-icons:astro" width="20"></iconify-icon> Astro
-			</li>
-			<li class="flex items-center gap-2">
-				<iconify-icon icon="simple-icons:tailwindcss" width="20"></iconify-icon> Tailwind CSS
-			</li>
-
-			<!-- Mobile Development -->
-			<li class="basis-full font-semibold text-gray-600 mt-4">Mobile Development</li>
-			<li class="flex items-center gap-2">
-				<iconify-icon icon="simple-icons:flutter" width="20"></iconify-icon> Flutter
-			</li>
-			<li class="flex items-center gap-2">
-				<iconify-icon icon="simple-icons:androidstudio" width="20"></iconify-icon> Android Studio
-			</li>
-
-			<!-- Others -->
-			<li class="basis-full font-semibold text-gray-600 mt-4">Other</li>
-			<li class="flex items-center gap-2">
-				<iconify-icon icon="simple-icons:figma" width="20"></iconify-icon> Figma
-			</li>
-			<li class="flex items-center gap-2">
-				<iconify-icon icon="simple-icons:adobepremierepro" width="20"></iconify-icon> Premiere Pro
-			</li>
-			<li class="flex items-center gap-2">
-				<iconify-icon icon="simple-icons:canva" width="20"></iconify-icon> Canva
-			</li>
-			</ul>
-		</div>
-		<div class="flex-1 text-center lg:text-left text-5xl opacity-20 select-none hidden lg:block">
-			<SkillSet />
-		</div>
-	</div>
-
-
-    <!-- Social -->
-    <div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
+    <!-- Skills Section -->
+    <div class="flex flex-col lg:flex-row-reverse 
+               gap-6 sm:gap-8 lg:gap-12 
+               items-start">
+      
+      <!-- Content -->
       <div class="flex-1">
-        <h2 class="text-3xl font-bold mb-4">Social</h2>
-        <ul class="space-y-2">
-          <li>
-            <a href="#" class="text-blue-600 hover:underline">LinkedIn</a>
+        <h2 class="text-2xl sm:text-3xl 
+                  font-bold 
+                  mb-3 sm:mb-4">
+          Skills
+        </h2>
+        
+        <ul class="flex flex-wrap 
+                  gap-x-4 sm:gap-x-6 
+                  gap-y-2 sm:gap-y-4 
+                  text-sm sm:text-base 
+                  text-gray-800">
+
+          <!-- Web Development -->
+          <li class="basis-full 
+                    font-semibold 
+                    text-gray-600 
+                    mt-1 sm:mt-2 
+                    text-sm sm:text-base">
+            Web Development
           </li>
-          <li>
-            <a href="#" class="text-blue-600 hover:underline">GitHub</a>
+          
+          <li class="flex items-center 
+                    gap-1 sm:gap-2 
+                    text-xs sm:text-sm lg:text-base">
+            <iconify-icon icon="simple-icons:laravel" width="16" class="sm:hidden"></iconify-icon>
+            <iconify-icon icon="simple-icons:laravel" width="20" class="hidden sm:block"></iconify-icon>
+            Laravel
           </li>
-          <li>
-            <a href="#" class="text-blue-600 hover:underline">Twitter</a>
+          
+          <li class="flex items-center 
+                    gap-1 sm:gap-2 
+                    text-xs sm:text-sm lg:text-base">
+            <iconify-icon icon="simple-icons:nextdotjs" width="16" class="sm:hidden"></iconify-icon>
+            <iconify-icon icon="simple-icons:nextdotjs" width="20" class="hidden sm:block"></iconify-icon>
+            NextJS
+          </li>
+          
+          <li class="flex items-center 
+                    gap-1 sm:gap-2 
+                    text-xs sm:text-sm lg:text-base">
+            <iconify-icon icon="simple-icons:astro" width="16" class="sm:hidden"></iconify-icon>
+            <iconify-icon icon="simple-icons:astro" width="20" class="hidden sm:block"></iconify-icon>
+            Astro
+          </li>
+          
+          <li class="flex items-center 
+                    gap-1 sm:gap-2 
+                    text-xs sm:text-sm lg:text-base">
+            <iconify-icon icon="simple-icons:tailwindcss" width="16" class="sm:hidden"></iconify-icon>
+            <iconify-icon icon="simple-icons:tailwindcss" width="20" class="hidden sm:block"></iconify-icon>
+            Tailwind CSS
+          </li>
+
+          <!-- Mobile Development -->
+          <li class="basis-full 
+                    font-semibold 
+                    text-gray-600 
+                    mt-2 sm:mt-4 
+                    text-sm sm:text-base">
+            Mobile Development
+          </li>
+          
+          <li class="flex items-center 
+                    gap-1 sm:gap-2 
+                    text-xs sm:text-sm lg:text-base">
+            <iconify-icon icon="simple-icons:flutter" width="16" class="sm:hidden"></iconify-icon>
+            <iconify-icon icon="simple-icons:flutter" width="20" class="hidden sm:block"></iconify-icon>
+            Flutter
+          </li>
+          
+          <li class="flex items-center 
+                    gap-1 sm:gap-2 
+                    text-xs sm:text-sm lg:text-base">
+            <iconify-icon icon="simple-icons:androidstudio" width="16" class="sm:hidden"></iconify-icon>
+            <iconify-icon icon="simple-icons:androidstudio" width="20" class="hidden sm:block"></iconify-icon>
+            Android Studio
+          </li>
+
+          <!-- Other Tools -->
+          <li class="basis-full 
+                    font-semibold 
+                    text-gray-600 
+                    mt-2 sm:mt-4 
+                    text-sm sm:text-base">
+            Other
+          </li>
+          
+          <li class="flex items-center 
+                    gap-1 sm:gap-2 
+                    text-xs sm:text-sm lg:text-base">
+            <iconify-icon icon="simple-icons:figma" width="16" class="sm:hidden"></iconify-icon>
+            <iconify-icon icon="simple-icons:figma" width="20" class="hidden sm:block"></iconify-icon>
+            Figma
+          </li>
+          
+          <li class="flex items-center 
+                    gap-1 sm:gap-2 
+                    text-xs sm:text-sm lg:text-base">
+            <iconify-icon icon="simple-icons:adobepremierepro" width="16" class="sm:hidden"></iconify-icon>
+            <iconify-icon icon="simple-icons:adobepremierepro" width="20" class="hidden sm:block"></iconify-icon>
+            Premiere Pro
+          </li>
+          
+          <li class="flex items-center 
+                    gap-1 sm:gap-2 
+                    text-xs sm:text-sm lg:text-base">
+            <iconify-icon icon="simple-icons:canva" width="16" class="sm:hidden"></iconify-icon>
+            <iconify-icon icon="simple-icons:canva" width="20" class="hidden sm:block"></iconify-icon>
+            Canva
           </li>
         </ul>
       </div>
-      <div class="flex-1 text-center lg:text-left text-5xl opacity-20 select-none hidden lg:block">
+      
+      <!-- Icon - hidden on mobile, visible on large screens -->
+      <div class="hidden lg:block 
+                 flex-1 
+                 text-center lg:text-left 
+                 text-4xl lg:text-5xl 
+                 opacity-20 
+                 select-none">
+        <SkillSet />
+      </div>
+    </div>
+
+    <!-- Social Section -->
+    <div class="flex flex-col lg:flex-row-reverse 
+               gap-6 sm:gap-8 lg:gap-12 
+               items-start">
+			   
+    <!-- Icon - hidden on mobile, visible on large screens -->
+      <div class="hidden lg:block 
+                 flex-1 
+                 text-center lg:text-left 
+                 text-4xl lg:text-5xl 
+                 opacity-20 
+                 select-none">
         <Social />
       </div>
+
+      <!-- Content -->
+      <div class="flex-1">
+        <h2 class="text-2xl sm:text-3xl 
+                  font-bold 
+                  mb-3 sm:mb-4">
+          Social
+        </h2>
+        
+        <ul class="space-y-1 sm:space-y-2">
+          <li>
+            <a href="#" 
+               class="text-sm sm:text-base 
+                     text-blue-600 
+                     hover:text-blue-800 hover:underline 
+                     transition-colors">
+              LinkedIn
+            </a>
+          </li>
+          
+          <li>
+            <a href="#" 
+               class="text-sm sm:text-base 
+                     text-blue-600 
+                     hover:text-blue-800 hover:underline 
+                     transition-colors">
+              GitHub
+            </a>
+          </li>
+          
+          <li>
+            <a href="#" 
+               class="text-sm sm:text-base 
+                     text-blue-600 
+                     hover:text-blue-800 hover:underline 
+                     transition-colors">
+              Twitter
+            </a>
+          </li>
+        </ul>
+      </div>
+      
     </div>
 
   </section>

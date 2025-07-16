@@ -3,29 +3,67 @@ import '../styles/global.css';
 import '@fontsource-variable/sora';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-const { title, description, pubDate, author, image, tags } = Astro.props;
+import { ViewTransitions } from 'astro:transitions';
+
+const {
+  title = 'Mirai Blog',
+  description = 'A minimalist blog',
+  author = 'Radinata',
+  pubDate,
+  image,
+  tags
+} = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="description" content={description} />
-        <meta name="author" content={author} />
-		<title>{ title }</title>
-	</head>
-	<body class="min-h-screen flex flex-col bg-grid">
-        <header class="sticky top-4 z-50">
-            <Navbar />
-        </header>
-        
-        <main class="flex p-8 m-8 items-center justify-center mx-auto">
-            <div class="prose max-w-[65ch]">
-                <slot />
-            </div>
-        </main>
-        <footer>
-            <Footer />
-        </footer>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <title>{title}</title>
+    
+    <!-- Iconify Web Component -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    
+    <!-- Ensure Iconify works with View Transitions -->
+    <script>
+      document.addEventListener('astro:page-load', () => {
+        // Refresh Iconify icons after page transition
+        if ((window as any).Iconify) {
+          (window as any).Iconify.scan();
+        }
+      });
+    </script>
+    
+    <!-- View Transitions for smooth page navigation -->
+    <ViewTransitions />
+  </head>
+  
+  <body class="min-h-screen 
+             flex flex-col 
+             bg-grid">
+    
+    <!-- Sticky header with responsive top spacing -->
+    <header class="sticky 
+                 top-2 sm:top-4 
+                 z-50">
+      <Navbar />
+    </header>
+    
+    <!-- Main content area with responsive layout and transition name -->
+    <main class="flex-grow 
+               px-4 sm:px-8 
+               py-4 sm:py-8"
+          transition:name="main-content">
+      <slot />
+    </main>
+    
+    <!-- Footer with transition name for consistency -->
+    <footer transition:name="footer">
+      <Footer />
+    </footer>
+  </body>
 </html>

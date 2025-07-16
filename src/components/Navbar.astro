@@ -2,27 +2,176 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="max-w-[65ch] mx-auto flex justify-between items-center px-6 py-4 border bg-white/95 rounded">
+<!-- Main navigation container with mobile spacing -->
+<nav class="max-w-[65ch] mx-4 sm:mx-auto flex justify-between items-center 
+           px-4 sm:px-6 
+           py-3 sm:py-4 
+           border bg-white/95 rounded">
+  
+  <!-- Logo/Brand - responsive text size -->
   <a
     href="/"
-    class="text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors"
+    class="text-lg sm:text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors z-50 relative"
   >
     Mirai/Blog
   </a>
 
-  <div class="flex gap-8">
+  <!-- Mobile hamburger button -->
+  <button 
+    id="mobile-menu-btn"
+    class="sm:hidden flex flex-col justify-center items-center 
+           w-10 h-10 p-2 cursor-pointer z-50 relative
+           touch-manipulation
+           hover:bg-gray-100 rounded-md transition-colors"
+    aria-label="Toggle mobile menu"
+  >
+    <span class="w-5 h-0.5 bg-gray-800 transition-all duration-300 ease-in-out mb-1"></span>
+    <span class="w-5 h-0.5 bg-gray-800 transition-all duration-300 ease-in-out mb-1"></span>
+    <span class="w-5 h-0.5 bg-gray-800 transition-all duration-300 ease-in-out"></span>
+  </button>
+
+  <!-- Desktop navigation links -->
+  <div class="hidden sm:flex 
+             gap-8 
+             text-base">
+    
+    <!-- Home link with active state styling -->
     <a
       href="/"
-      class={currentPath === '/' ? 'font-semibold underline underline-offset-8' : ''}
+      class={currentPath === '/' 
+        ? 'font-semibold underline underline-offset-8' 
+        : 'hover:text-gray-600 transition-colors'
+      }
     >
       Home
     </a>
 
+    <!-- Blog link with active state styling -->
     <a
       href="/blog"
-      class={currentPath.startsWith('/blog') ? 'font-semibold underline underline-offset-8' : ''}
+      class={currentPath.startsWith('/blog') 
+        ? 'font-semibold underline underline-offset-8' 
+        : 'hover:text-gray-600 transition-colors'
+      }
     >
       Blog
     </a>
   </div>
+
+  <!-- Mobile navigation menu -->
+  <div 
+    id="mobile-menu"
+    class="sm:hidden fixed inset-0 bg-white/95 z-40 
+           translate-x-full transition-transform duration-300 ease-in-out"
+  >
+    <div class="flex flex-col items-center justify-center h-full space-y-8">
+      <a
+        href="/"
+        class={`text-2xl font-medium ${currentPath === '/' 
+          ? 'font-bold underline underline-offset-8' 
+          : 'hover:text-gray-600'
+        } transition-colors`}
+      >
+        Home
+      </a>
+      
+      <a
+        href="/blog"
+        class={`text-2xl font-medium ${currentPath.startsWith('/blog') 
+          ? 'font-bold underline underline-offset-8' 
+          : 'hover:text-gray-600'
+        } transition-colors`}
+      >
+        Blog
+      </a>
+    </div>
+  </div>
 </nav>
+
+<script>
+  function initializeNavbar() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLines = mobileMenuBtn?.querySelectorAll('span');
+    
+    if (!mobileMenuBtn || !mobileMenu) return;
+    
+    let isOpen = false;
+    
+    // Remove existing event listeners to prevent duplicates
+    const newMobileMenuBtn = mobileMenuBtn.cloneNode(true);
+    mobileMenuBtn.parentNode?.replaceChild(newMobileMenuBtn, mobileMenuBtn);
+    
+    const finalMobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const finalMenuLines = finalMobileMenuBtn?.querySelectorAll('span');
+    
+    finalMobileMenuBtn?.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      isOpen = !isOpen;
+      
+      if (isOpen) {
+        // Open menu
+        mobileMenu?.classList.remove('translate-x-full');
+        mobileMenu?.classList.add('translate-x-0');
+        
+        // Transform hamburger to X
+        if (finalMenuLines) {
+          finalMenuLines[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+          finalMenuLines[1].style.opacity = '0';
+          finalMenuLines[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+        }
+      } else {
+        // Close menu
+        mobileMenu?.classList.remove('translate-x-0');
+        mobileMenu?.classList.add('translate-x-full');
+        
+        // Transform X back to hamburger
+        if (finalMenuLines) {
+          finalMenuLines[0].style.transform = 'none';
+          finalMenuLines[1].style.opacity = '1';
+          finalMenuLines[2].style.transform = 'none';
+        }
+      }
+    });
+    
+    // Close menu when clicking on links
+    const mobileLinks = mobileMenu?.querySelectorAll('a');
+    mobileLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+        isOpen = false;
+        mobileMenu?.classList.remove('translate-x-0');
+        mobileMenu?.classList.add('translate-x-full');
+        
+        if (finalMenuLines) {
+          finalMenuLines[0].style.transform = 'none';
+          finalMenuLines[1].style.opacity = '1';
+          finalMenuLines[2].style.transform = 'none';
+        }
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as Node;
+      if (isOpen && !finalMobileMenuBtn?.contains(target) && !mobileMenu?.contains(target)) {
+        isOpen = false;
+        mobileMenu?.classList.remove('translate-x-0');
+        mobileMenu?.classList.add('translate-x-full');
+        
+        if (finalMenuLines) {
+          finalMenuLines[0].style.transform = 'none';
+          finalMenuLines[1].style.opacity = '1';
+          finalMenuLines[2].style.transform = 'none';
+        }
+      }
+    });
+  }
+  
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initializeNavbar);
+  
+  // Re-initialize after view transitions
+  document.addEventListener('astro:page-load', initializeNavbar);
+</script>

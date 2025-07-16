@@ -13,7 +13,7 @@ tags: ["markdown", "test", "wife"]
 
 ![Mirai Kuriyama](https://safebooru.org//images/3008/1fd8f0f9bfde80ce14d183f237fd1174f0233320.png?3131998)
 
-*Image Credit: nardack on*
+*Image Credit: nardack*
 
 ## Introduction
 
