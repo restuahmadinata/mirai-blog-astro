@@ -3,7 +3,7 @@ import '../styles/global.css';
 import '@fontsource-variable/sora';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 const {
   title = 'Mirai Blog',
@@ -39,7 +39,7 @@ const {
     </script>
     
     <!-- View Transitions for smooth page navigation -->
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   
   <body class="min-h-screen 

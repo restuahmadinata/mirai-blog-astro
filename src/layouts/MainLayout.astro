@@ -3,7 +3,9 @@ import '../styles/global.css';
 import '@fontsource-variable/sora';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import { ViewTransitions } from 'astro:transitions';
+
+// Mengganti ViewTransitions (deprecated) ke ClientRouter
+import { ClientRouter } from 'astro:transitions';
 
 const {
   title = 'Mirai Blog',
@@ -25,7 +27,6 @@ const {
     <!-- Iconify Web Component -->
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     
-    <!-- Ensure Iconify works with View Transitions -->
     <script>
       document.addEventListener('astro:page-load', () => {
         // Refresh Iconify icons after page transition
@@ -35,8 +36,8 @@ const {
       });
     </script>
     
-    <!-- View Transitions for smooth page navigation -->
-    <ViewTransitions />
+    <!-- ClientRouter for smooth page navigation (renamed from ViewTransitions) -->
+    <ClientRouter />
   </head>
   
   <body class="min-h-screen 

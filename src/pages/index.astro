@@ -1,8 +1,5 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import BrainIcon from '../components/icons/BrainIcon.astro';
-import SkillSet from '../components/icons/SkillSet.astro';
-import Social from '../components/icons/Social.astro';
 ---
 
 <MainLayout>
@@ -14,7 +11,7 @@ import Social from '../components/icons/Social.astro';
                  space-y-12 sm:space-y-16 lg:space-y-24">
 
     <!-- Who Am I Section -->
-    <div class="flex flex-col lg:flex-row 
+    <div class="flex flex-col
                gap-6 sm:gap-8 lg:gap-12 
                items-start">
       
@@ -39,19 +36,9 @@ import Social from '../components/icons/Social.astro';
         </p>
       </div>
       
-      <!-- Icon - hidden on mobile, visible on large screens -->
-      <div class="hidden lg:block 
-                 flex-1 
-                 text-center lg:text-right 
-                 text-4xl lg:text-5xl 
-                 opacity-20 
-                 select-none">
-        <BrainIcon />
-      </div>
-    </div>
 
     <!-- Skills Section -->
-    <div class="flex flex-col lg:flex-row-reverse 
+    <div class="flex flex-col
                gap-6 sm:gap-8 lg:gap-12 
                items-start">
       
@@ -170,31 +157,13 @@ import Social from '../components/icons/Social.astro';
         </ul>
       </div>
       
-      <!-- Icon - hidden on mobile, visible on large screens -->
-      <div class="hidden lg:block 
-                 flex-1 
-                 text-center lg:text-left 
-                 text-4xl lg:text-5xl 
-                 opacity-20 
-                 select-none">
-        <SkillSet />
-      </div>
-    </div>
+    
 
     <!-- Social Section -->
     <div class="flex flex-col lg:flex-row-reverse 
                gap-6 sm:gap-8 lg:gap-12 
                items-start">
 			   
-    <!-- Icon - hidden on mobile, visible on large screens -->
-      <div class="hidden lg:block 
-                 flex-1 
-                 text-center lg:text-left 
-                 text-4xl lg:text-5xl 
-                 opacity-20 
-                 select-none">
-        <Social />
-      </div>
 
       <!-- Content -->
       <div class="flex-1">
